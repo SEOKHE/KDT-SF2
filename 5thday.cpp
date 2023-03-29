@@ -179,20 +179,21 @@ int main(){
     // cout << num << endl;
 
 //namespace 실습 1 최상단의 namespace와 연계해서 생각할것
-    // seoul::localno = 02;
-    // seoul::landmark = "남산";
-    // localno = 51;
-    // landmark = "범어사";
     
-    // cout << "서울의 지역번호 : ";
-    // cout << seoul::localno;
-    // cout << endl;
-    // cout << "서울의 랜드마크 : ";
-    // cout << seoul::landmark;
-    // cout << endl;
-    // cout << "부산의 지역번호 : ";
-    // cout << localno;
-    // cout << endl;
-    // cout << "부산의 랜드마크 : ";
-    // cout << landmark;
+    seoul::localno = 02;
+    seoul::landmark = "남산";
+    busan::localno = 51;
+    busan::landmark = "범어사";
+    
+    cout << "서울의 지역번호 : ";
+    cout << seoul::localno;
+    cout << endl;
+    cout << "서울의 랜드마크 : ";
+    cout << seoul::landmark;
+    cout << endl;
+    cout << "부산의 지역번호 : ";
+    cout << localno;
+    cout << endl;
+    cout << "부산의 랜드마크 : ";
+    cout << landmark;
 }
