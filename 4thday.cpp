@@ -100,10 +100,10 @@ int main(){
     // }
 
     //실습1
-    // std::string city[5] = {"USA", "GBK", "SPAIN", "ITALY", "FRENCH"};
-    // for(int arr = 0; arr < 5; arr++){
-    //     std::cout << city[arr] << " ";
-    // }
+    std::string city[5] = {"USA", "GBK", "SPAIN", "ITALY", "FRENCH"};
+    for(int arr = 0; arr < 5; arr++){
+        std::cout << city[arr] << " ";
+    }
 
     //실습2
     // std::string city2[5];
