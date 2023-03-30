@@ -1,20 +1,20 @@
 #include <iostream> //input output stream
 #include <fstream> //file stream 파일의 입출력을 관장
-#include <string> // get line이 포함됨
+#include <string> // getline이 포함됨
 #include <vector>
 //메소드 -> 클래스 안에 설정된 함수
 using namespace std;
 
-struct Position { //구조체는 main 함수 밖에 선언해야 함, 여러가지 변수를 하나로 묶어서 사용하기 위해 구조체를 사용함
+// struct Position { //구조체는 main 함수 밖에 선언해야 함, 여러가지 변수를 하나로 묶어서 사용하기 위해 구조체를 사용함
 
-    int x = 0;
-    int y = 0;
-};
+//     int x = 0;
+//     int y = 0;
+// }; //*구조체는 중괄호 끝에 ;를 붙여야함*/
 
-struct Rectangle {
-    int width = 0;
-    int height = 0;
-};
+// struct Rectangle {
+//     int width = 0;
+//     int height = 0;
+// };
 
 
 int main(){
@@ -56,7 +56,7 @@ int main(){
 
     // file2.close();
 
-        // ofstream file2("output.txt"); // C++이 알아서 파일을 생성해줌
+    //     ofstream file2("output.txt"); // C++이 알아서 파일을 생성해줌
 
     // if(!file2.fail()){
     //     file2 << "Bye world!\n" << "Bye Bye\n"; // 파일에 해당 내용 작성
@@ -138,37 +138,37 @@ int main(){
     // file3.close();
 
 
-//실습1 정답
+// //실습1 정답
 
-    ofstream member_o("member.txt");
+    // ofstream member_o("member.txt");
 	
-	cout << "3명의 회원에 대한 이름, 비밀번호를 순차적으로 입력하세요.\n";
+	// cout << "3명의 회원에 대한 이름, 비밀번호를 순차적으로 입력하세요.\n";
 
-	for (int i = 0; i < 3; i++) {
-		cout << i + 1 << "번째 회원 : ";
+	// for (int i = 0; i < 3; i++) {
+	// 	cout << i + 1 << "번째 회원 : ";
 
-		string people;
-		getline(cin, people);
+	// 	string people;
+	// 	getline(cin, people);
 
-		if (member_o.is_open()){
-            cout << people << endl;
-            member_o << people << endl;
-        } 
-	}
-	member_o.close();
+	// 	if (member_o.is_open()){
+    //         cout << people << endl;
+    //         member_o << people << endl;
+    //     } 
+	// }
+	// member_o.close();
 
-	ifstream member_r("member.txt");
-	string line;
+	// ifstream member_r("member.txt");
+	// string line;
 
-    cout << endl << "회원 명부 파일 읽기" << endl;
+    // cout << endl << "회원 명부 파일 읽기" << endl;
 
-	if (member_r.is_open()) {
-		while (getline(member_r, line)){
-            cout << line << endl;
-		}
-	}
+	// if (member_r.is_open()) {
+	// 	while (getline(member_r, line)){
+    //         cout << line << endl;
+	// 	}
+	// }
 
-	member_r.close();
+	// member_r.close();
 
     // ofstream test("test.txt");
     // string str;
@@ -177,18 +177,18 @@ int main(){
     // test.close();
 
 
-//실습2 정답
+// //실습2 정답
 
-    ifstream member("member.txt");
-	string name, pw, name_in, pw_in;
+    // ifstream member("member.txt");
+	// string name, pw, name_in, pw_in;
 
-	cout << endl << "이름을 입력하세요: ";
-	cin >> name_in;
+	// cout << endl << "이름을 입력하세요: ";
+	// cin >> name_in;
 
-	cout << "비밀번호를 입력하세요: ";
-	cin >> pw_in;
+	// cout << "비밀번호를 입력하세요: ";
+	// cin >> pw_in;
 
-	bool is_login = false;
+	// bool is_login = false;
 
 	// if (member.is_open()) {
 	// 	while (member >> name >> pw) {
@@ -205,32 +205,103 @@ int main(){
 
 	// member.close();
 	
-//실습 3
-            //ofstream file("파일명.txt, ios::app") -> 내용 초기화 없이 이어 쓰기 가능
-    ofstream member_tel("member_tel.txt, ios::app");
-    string member_tele;
+// //실습 3
+//     //ofstream file("파일명.txt, ios::app") -> 작성하는 위치가 파일의 끝으로 이동해서 내용 초기화 없이 이어 쓰기 가능
+//     // ofstream member_tel("member_tel.txt, ios::app");
+//     // string member_tele;
     
-    if (member.is_open()) {
-	    while (member >> name >> pw) {
-		 if (name_in == name && pw_in == pw) {
-			is_login = true;
-			break;
-		 }
-		}
-     if (is_login) {
-        cout << "로그인 성공\n";
-        cout << "전화번호를 입력하세요 : \n";
-        getline(cin, member_tele);
-        member_tel << name_in << member_tele << endl;
+//     // if (member.is_open()) {
+// 	//     while (member >> name >> pw) {
+// 	// 	 if (name_in == name && pw_in == pw) {
+// 	// 		is_login = true;
+// 	// 		break;
+// 	// 	 }
+// 	// 	}
+//     //  if (is_login) {
+//     //     cout << "로그인 성공\n";
+//     //     cout << "전화번호를 입력하세요 : \n";
+//     //     getline(cin, member_tele);
+//     //     member_tel << name_in << member_tele << endl;
 
-     }
-	 else cout << "로그인 실패\n";
+//     //  }
+// 	//  else cout << "로그인 실패\n";
+// 	// }
+// 	// else cout << "파일을 읽지 못하였습니다.\n";
+
+//     // member.close();
+
+
+//실습3(번외) 해설
+
+    ifstream member("member.txt");
+	string name, pw, name_in, pw_in;
+
+	cout << "이름을 입력하세요: ";
+	cin >> name_in;
+
+	cout << "비밀번호를 입력하세요: ";
+	cin >> pw_in;
+
+	bool is_login = false;
+
+	if (member.is_open()) {
+		while (member >> name >> pw) {
+			if (name_in == name && pw_in == pw) {
+				is_login = true;
+				break;
+			}
+		}
+
+		if (is_login) {
+			cout << "로그인 성공\n";
+
+			string num_in, num;
+
+			cout << "전화번호를 입력하세요 : ";
+			cin >> num_in;
+
+			ifstream member_tel_r("member_tel.txt");
+
+			bool is_modify = false;
+			string member_tel_tmp = "";
+
+			if (member_tel_r.is_open()) {
+	
+				while (member_tel_r >> name >> num) {
+					string line = name + " ";
+					if (name_in == name) {
+						is_modify = true;
+						line += num_in;
+					}
+					else {
+						line += num;
+					}
+					member_tel_tmp += line + "\n";
+				}
+			}
+
+			member_tel_r.close();
+
+
+			ofstream member_tel_w;
+			
+			if (is_modify) {
+				member_tel_w.open("member_tel.txt");
+				member_tel_w << member_tel_tmp;
+			}
+			else {
+				member_tel_w.open("member_tel.txt", ios::app);
+				if (member_tel_w.is_open()) {
+					member_tel_w << name_in << " " << num_in << endl;
+				}
+			}
+
+			member_tel_w.close();
+		} else cout << "로그인 실패\n";
 	}
 	else cout << "파일을 읽지 못하였습니다.\n";
 
-    member.close();
- 
-
+	member.close();
 
 //구조체 
 // Position p;
@@ -253,9 +324,4 @@ int main(){
 
     // cout << "넓이는 : " << r.width * r.height;
     // cout << endl;
-
-
-
-
-
 }

@@ -1,2 +1,1 @@
-	// ifstream member_r("member.txt");
-	// string line;
+         // cout << chara1.getNamechange();
