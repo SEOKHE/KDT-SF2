@@ -13,7 +13,7 @@ using namespace std;
         
 //         cout << name <<"고양이가 태어났습니다! \n";
 //     }
-
+2
 //     string getName(){
 //         return name;
 //     }
