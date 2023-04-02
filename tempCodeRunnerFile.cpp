@@ -1,1 +1,2 @@
- // cout << "안녕하세요?" << endl;
+ // this->name = name;
+        // name = "aaa"; /
