@@ -1,2 +1,1 @@
- // this->name = name;
-        // name = "aaa"; /
+ // lotto.pop_back();
