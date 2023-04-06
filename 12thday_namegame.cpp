@@ -14,7 +14,6 @@ int main(void){
     string word_n;
     
     
-    int cnt;
     vector<string> ng;
     time_t endTime = time(NULL);
     
@@ -32,8 +31,7 @@ int main(void){
             cout << "잘못된 단어 입니다. 다시 입력해주세요!" << endl;
             // cout << word_o << " " << word_n << endl; //word_o와 word_n의 값 확인을 위한 코드
         }
-        else if(word_o[n-1] == word_n[0]){
-            cnt++;
+        else {
             ng.push_back(word_n);
             word_o = word_n;
             // cout << word_o << " " << word_n << endl; //word_o와 word_n의 값 확인을 위한 코드
@@ -54,12 +52,13 @@ int main(void){
         time_t endTime = time(NULL);
         
         if(endTime - startTime > 30){
-            cout << "시간초과!! 펑!!!!";
+            cout << "시간초과!! 펑!!!!" << endl;
             break;
         }
         
     }
     
+    cout << "총 단어의 개수는 : " <<ng.size() << " 입니다." << endl;
     return 0;
 }
 
