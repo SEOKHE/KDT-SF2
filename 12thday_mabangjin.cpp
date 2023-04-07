@@ -11,10 +11,9 @@ using std::endl;
 
 int main(){
     int num;
-    int count = 0, x = 0, y = num/2;
+    // int count = 0, x = 0, y = num/2;
     
-
-    while(1){
+     while(1){
         cout << "홀수를 입력해주세요 : ";
         cin >> num;
         if(num %2 == 0){
@@ -24,37 +23,33 @@ int main(){
             break;
         }
     }
-
+    
     int** arr = new int* [num];
     for(int i = 0; i < num; i++){
         arr[i] = new int [num];
     }
-    
-    while(1){
-        for(int i = 0; i < num * num; i++){
-            count++;
-            if(x < 0){ //1행에서 마지막 행으로 이동
-                x += num;
-            }
-            if(y > num){ // 마지막 열에서 1열로 이동
-                y -= num;
-            }
-            arr[x][y] = count; //배열의 해당 주소에 값 입력
-            if(count%num == 0){ // 값이 입력받은 홀수의 배수 일 경우 한칸 아래의 행으로 이동
-                x++;
-                continue;
-            }
-            x--;
-            y++;
+
+    int k, nmg, x = 0, y = num/2;
+   
+
+    for(k = 1; k < num * num; k++){
+        arr[x][y] = k;
+        nmg = k % num;
+        if(nmg == 0){ //1행에서 마지막 행으로 이동
+            x ++;
         }
-        //출력부
-        for(int i = 0; i < num; i++){
-            for(int j = 0; j < num; j++){
-                cout << arr[i][j] << " ";
-            }
-            cout << endl;
+        else if(--x < 0){ // 마지막 열에서 1열로 이동
+            x = num - 1;
+        } if(++y == num){ // 값이 입력받은 홀수의 배수 일 경우 한칸 아래의 행으로 이동
+            y = 0;
         }
-        break; //while문 탈출
+    }
+    //출력부
+    for(int i = 0; i < num; i++){
+        for(int j = 0; j < num; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
     }
     
     for(int i = 0; i < num; i++){
