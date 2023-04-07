@@ -55,7 +55,7 @@ int main(void){
             cout << "시간초과!! 펑!!!!" << endl;
             break;
         }
-        
+
     }
     
     cout << "총 단어의 개수는 : " <<ng.size() << " 입니다." << endl;

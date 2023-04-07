@@ -21,7 +21,7 @@ int main(){
         int tmp = num % 45 + 1;
         lotto.push_back(tmp);
         for(int j = 0; j < lotto.size(); j++){
-            if(lotto[i] == lotto[j]){ // lotto 벡터 안의 원소와 새로운 num이 중복이 아니라면
+            if(lotto[i] == lotto[j]){ // lotto 벡터 안의 원소와 새로운 num이 중복이라면
                 i--;
             }
         }
