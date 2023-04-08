@@ -48,19 +48,18 @@ int main(){
             cout << "1~9 사이의 숫자만 입력해주세요" << endl;
             break;
         }
-        else{
-            for(int i = 0; i < 3; i++){
-                if(referee[i] == batter[i]){
-                        strike++;
-                    }
-                for(j = 0; j < 3; j++){
-                    if(referee[i] != batter[i] && referee[i] == batter[j]){
-                        ball++;
-                    }
+        
+        for(int i = 0; i < 3; i++){
+            if(referee[i] == batter[i]){
+                    strike++;
+                }
+            for(j = 0; j < 3; j++){
+                if(referee[i] != batter[i] && referee[i] == batter[j]){
+                    ball++;
                 }
             }
-            count++;
         }
+        count++;
         cout << "strike:" << strike << " ball:" << ball << endl;
         if(strike == 3){
             cout << endl << "총 " << count << "회 만에 클리어하셨습니다. 축하드립니다!!" << endl;
@@ -68,7 +67,7 @@ int main(){
         }
         strike = 0;
         ball = 0;
-    }
+        }
     cout << "정답: ";
     for(int i = 0; i < 3; i++){
         cout << referee[i] << " ";

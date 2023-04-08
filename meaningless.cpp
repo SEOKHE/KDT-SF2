@@ -1,68 +1,54 @@
-// #include <iostream>
+#include <iostream>
 
-// using std::cout;
-// using std::cin;
-// using std::string;
-// using std::endl;
+using namespace std;
+
+double calculator(int a, int b, char op);
+
+int main(){
+    int a, b;
+    double c;
+    char op;
+    cout << "두 정수와 +, -, *, / 중 하나의 연산자를 입력하세요 -> ";
+    cin >> a >> op >> b;
+    c = calculator(a, b, op); 
+    cout << c << endl;
+    
+    return 0;
+} 
+
+double calculator(int a, int b, char op){
+    double res = 0;
+    if(op == '+'){
+        res = a + b;
+    }
+    else if(op == '-'){
+        res = a - b;
+    }
+    else if(op == '*'){
+        res = a * b;
+    }
+    else if(op == '/'){
+        if(b !=0 ){
+            res = (double)a / (double)b;
+        }
+        else{
+            cout << "계산 불가" << endl;
+        }
+        
+    }
+    cout << "계산 결과는 : ";
+    return res;
+}
 
 
-// // -1/ -2 / -3/ -4  -> 2로 나눈 몫을 빼준 위치에 1을 놓으면 중앙에 1 위치 가능 
-// //3 = 2/ 5 = 3/ 7 = 4/ 9 = 5 
+// -1/ -2 / -3/ -4  -> 2로 나눈 몫을 빼준 위치에 1을 놓으면 중앙에 1 위치 가능 
+//3 = 2/ 5 = 3/ 7 = 4/ 9 = 5 
 
 // int main(){
-//     int num;
-//     int count = 0, x = 0, y = num/2;
-//     int end;
+//     int num1, num2, result;
+//     cin >> num1;
+//     cin >> num2;
 
-//     while(1){
-//         cout << "홀수를 입력해주세요 : ";
-//         cin >> num;
-//         if(num %2 == 0){
-//             cout << "잘못된 수 입니다! 홀수를 입력해주세요!!" << endl;
-//         }
-//         else {
-//             break;
-//         }
-//     }
-
-//     int** arr = new int* [num];
-//     for(int i = 0; i < num; i++){
-//         arr[i] = new int [num];
-//     }
-    
-//     while(1){
-//         for(int i = 0; i < num * num; i++){
-//             count++;
-//             if(x < 0){ //1행에서 마지막 행으로 이동
-//                 x += num;
-//             }
-//             if(y > num){ // 마지막 열에서 1열로 이동
-//                 y -= num;
-//             }
-//             arr[x][y] = count; //배열의 해당 주소에 값 입력
-//             if(count%num == 0){ // 값이 입력받은 홀수의 배수 일 경우 한칸 아래의 행으로 이동
-//                 x++;
-//                 continue;
-//             }
-//             x--;
-//             y++;
-//         }
-//         //출력부
-//         for(int i = 0; i < num; i++){
-//             for(int j = 0; j < num; j++){
-//                 cout << arr[i][j] << " ";
-//             }
-//             cout << endl;
-//         }
-//         if(count == sizeof(arr)){
-//             break;
-//         }
-//     }
-    
-//     for(int i = 0; i < num; i++){
-//         delete[] arr[i];
-//     }
-//     delete[] arr;
-
-//     return 0;
+//     result = num1*3 num2;
+//     cout << result << endl; 
 // }
