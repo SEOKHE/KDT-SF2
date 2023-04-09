@@ -8,16 +8,17 @@ using std::endl;
 using std::string;
 
 class Character{
-
+protected:
     string name;
-    int item_num;
-    int item_num2;
+    int w_num; // 단검의 소유 개수
+    int w_num2; // 총의 소유 개수
     int hp = 100;
+    int wnum;
 
     public:
     Character(string name){
         this->name = name;
-        item_num = 0;
+        w_num = 0;
     }
     string getName(){
         return name;
@@ -38,37 +39,71 @@ class Character{
         cout << endl;
     }
 
-    void getWeapon(){
-        cout << "무기를 획득했습니다. " << endl;
-        cout << "현재 소유 중인 무기의 개수는 " << item_num << " 입니다." << endl;
-    }
-
-    void setItem_numA(){
-        item_num++;
-        cout <<"소유 중인 아이템 개수가 변경 되었습니다! \n";
-        cout << "현재 소유 중인 무기의 개수는 " << item_num << " 입니다.";
-        cout << endl;
-    }
-    void setItem_numD(){
-        if(item_num > 0){
-            item_num--;
-            cout <<"소유 중인 무기 개수가 변경 되었습니다! \n";
-            cout << "현재 소유 중인 무기 개수는 " << item_num << " 입니다.";
+    void getWeapon(){ //무기 줍기
+        while(1){
+            cout << "무기를 줍습니다." << endl;
+            cout << "어떤 무기를 선택하시겠습니까? (1.단검 2.총)" << endl;
+            cin >> wnum;
             cout << endl;
+            if(wnum == 1){
+                cout << "단검을 선택하셨습니다." << endl;
+                cout << "즉시 단검 착용" << endl;
+                w_num++;
+                break;
+            }
+            else if(wnum == 2){
+                cout << "총을 선택하셨습니다." << endl;
+                cout << "즉시 견착" << endl;
+                w_num2++;
+                break;
+            }
+            else{
+                cout << "1 ~ 2번 중에 입력해주세요" << endl;
+            }
         }
-        else cout << "현재 소유 중인 무기가 없습니다! \n";
+        
+
     }
 
-    void status(){
+    void attack(){
+        cout << "상대를 공격했습니다!!" << endl;
+        hp = hp; // - 데미지 해줘야 함
+        
+        if(wnum == 1){
+            cout << "단검을 던졌습니다!" << endl;
+            w_num --;
+        }
+        else if(wnum == 2){
+            cout << "총을 발사했습니다!" << endl;
+            w_num2 --;
+        }
+    }
+    // void setItem_numA(){ //무기 획득
+    //     w_num++;
+    //     cout << "무기를 획득했습니다. " << endl;
+    //     cout <<"소유 중인 아이템 개수가 변경 되었습니다! \n";
+    //     cout << "현재 소유 중인 무기의 개수는 " << w_num << " 입니다.";
+    //     cout << endl;
+    // }
+    // void setItem_numD(){ //무기 사용
+    //     if(w_num > 0){
+    //         w_num--;
+    //         cout <<"소유 중인 무기 개수가 변경 되었습니다! \n";
+    //         cout << "현재 소유 중인 무기 개수는 " << w_num << " 입니다.";
+    //         cout << endl;
+    //     }
+    //     else cout << "현재 소유 중인 무기가 없습니다! \n";
+    // }
+
+    void status(){ //스테이터스
         cout << "이름: " << name << endl;
-        cout << "무기 개수: " << item_num << endl;
+        cout << "무기 개수: " << w_num << endl;
     }
 
 };
 
-class Weapon{
+class Weapon : public Character{
 protected:
-    int hp;
     int attack_stat, attack_num;
 
 public:
@@ -78,7 +113,7 @@ public:
     }
 };
 
-class Knife : public Weapon{
+class Knife : public Weapon{ // 단검, 총 사용 가능. 단검은 최대 데미지가 15이지만 1~3 개 중 무작위 수로 던짐. 총은 1 발이지만 10 데미지 확정
     int attack_stat = 5;
     int attack_num = 3;
     int rnum = std::rand();
@@ -159,10 +194,10 @@ int main(){
     cout <<"캐릭터가 생성되었습니다! \n";
 
     while(1){
-        cout << "> 1: 이름 변경" << endl << "> 2: 무기 획득" << endl << "> 3: 무기 사용" << endl << "> 4: 스테이터스 창 열기" << endl;
+        cout << "> 1: 이름 변경" << endl << "> 2: 무기 획득" << endl << "> 3: 공격" << endl << "> 4: 스테이터스 창 열기" << endl;
         cout << " 어떤 동작을 실행하시겠습니까? (0: 종료) ";
         cin >> num1;
-
+        cout << endl << endl;
         if(num1 != 0){
             if(num1 == 1){
                 cout << "변경할 이름을 입력해주세요. " << endl;
@@ -170,10 +205,10 @@ int main(){
                 chara1.setNamechange(name);
             }
             else if(num1 == 2){
-                chara1.setItem_numA();
+                chara1.getWeapon();
             }
             else if(num1 == 3){
-                chara1.setItem_numD();
+                chara1.attack();
             }
             else if(num1 == 4){
                chara1.status();

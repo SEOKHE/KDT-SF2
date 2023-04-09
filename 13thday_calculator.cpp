@@ -19,18 +19,18 @@ protected:
 
 public:
     Operator(int num1, int num2){
-        this -> num1 = (double)num1;
-        this -> num2 = (double)num2;
-    }   
+        this -> num1 = num1;
+        this -> num2 = num2;
+    }
 
     void Result(){
         cout << "----------------------------------------------------------------------------" << endl;
-        cout << "결과값 : " << (double)result << endl;
+        cout << "결과값 : " << result << endl;
         cout << "----------------------------------------------------------------------------" << endl;
     }
 
     virtual double calc(){ //가상 함수를 쓰면 다운캐스트를 하지 않아도 자식 클래스의 메소드 사용 가능하다(물론 원형이 같은 메소드에 해당).
-        return (double)result;
+        return result;
     }
 };
 
@@ -69,8 +69,8 @@ public:
     Divide(double num1, double num2) : Operator(num1,num2){
     }
     double calc(){
-        result =  (double)num1 / (double)num2;
-        return (double)result;
+        result =  num1 / num2;
+        return result;
     }
 };
 
@@ -127,6 +127,7 @@ int main(){
         else if(operat == '/'){
             cal = new Divide(num1, num2);
         }
+        
         result = cal->calc();
         cnt++;
         cal->Result();

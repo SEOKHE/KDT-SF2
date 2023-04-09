@@ -5,15 +5,9 @@ using std::cin;
 using std::string;
 using std::endl;
 
-
-// -1/ -2 / -3/ -4  -> 2로 나눈 몫을 빼준 위치에 1을 놓으면 중앙에 1 위치 가능 
-//3 = 2/ 5 = 3/ 7 = 4/ 9 = 5 
-
 int main(){
-    int num;
-    // int count = 0, x = 0, y = num/2;
-    
-     while(1){
+    int num;    
+    while(1){
         cout << "홀수를 입력해주세요 : ";
         cin >> num;
         if(num %2 == 0){
@@ -23,24 +17,23 @@ int main(){
             break;
         }
     }
-    
+
     int** arr = new int* [num];
     for(int i = 0; i < num; i++){
         arr[i] = new int [num];
     }
 
     int k, nmg, x = 0, y = num/2;
-   
 
     for(k = 1; k < num * num; k++){
         arr[x][y] = k;
         nmg = k % num;
-        if(nmg == 0){ //1행에서 마지막 행으로 이동
+        if(nmg == 0){ //값이 입력받은 홀수의 배수 일 경우 한칸 아래의 행으로 이동
             x ++;
         }
-        else if(--x < 0){ // 마지막 열에서 1열로 이동
-            x = num - 1;
-        } if(++y == num){ // 값이 입력받은 홀수의 배수 일 경우 한칸 아래의 행으로 이동
+        else if(--x < 0){ //1행에서 마지막 행으로 이동
+            x = num - 1; 
+        } if(++y == num){ // 마지막 열에서 1열로 이동
             y = 0;
         }
     }

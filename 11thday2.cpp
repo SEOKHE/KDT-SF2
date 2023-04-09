@@ -7,6 +7,7 @@ using std::cin;
 using std::endl;
 using std::string;
 
+
 int main(){
     std::srand(time(NULL));
     int gnum = 0; // game number
@@ -25,30 +26,25 @@ int main(){
             }
             else{
                 for(int i = 0; i < pnum; i++){
-                    cout << ++gnum << endl; 
+                    cout << ++gnum << endl;
                 }
                 cout << endl;
                 turn = true;
             }
         }
+
         else if(turn == true){
             cout << "컴퓨터가 입력한 숫자입니다!" << endl;
             int rnum = std::rand();  //random num
             cnum = rnum % 3 + 1;
-
             for(int j = 0; j < cnum; j++){
                 cout << ++gnum << endl;
             }
             cout << endl;
             turn = false;
             }        
-            
-            if(gnum >= 31){
-            break;
-            }
     }
 
-    // 게임의 결론부
     if(gnum >= 31){
         cout << "게임이 종료되었습니다" << endl;
         if(turn == false){
@@ -59,21 +55,3 @@ int main(){
         }
     }
 }
-
-// int num; //함수로 count 역할을 대체해보려는 시도 중이었음
-
-// int count(int num){
-    
-//     bool turn = false;
-//     int gnum = 0;
-//     for(int i = 0; i < num; i++){
-//         cout << ++gnum << endl; //gnum ++;과 같은 역할
-//     }
-//     cout << endl;
-//     if(turn == true){
-//         turn = false;
-//     }
-//     else turn = true;
-
-//     return gnum;
-// }/
