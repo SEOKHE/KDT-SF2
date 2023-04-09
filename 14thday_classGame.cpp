@@ -13,9 +13,8 @@ protected:
     int w_num; // 단검의 소유 개수
     int w_num2; // 총의 소유 개수
     int hp = 100;
-    int wnum;
-
-    public:
+    int wnum, deal;
+public:
     Character(string name){
         this->name = name;
         w_num = 0;
@@ -61,20 +60,19 @@ protected:
                 cout << "1 ~ 2번 중에 입력해주세요" << endl;
             }
         }
-        
-
     }
 
-    void attack(){
+    virtual void attack(){
         cout << "상대를 공격했습니다!!" << endl;
-        hp = hp; // - 데미지 해줘야 함
         
         if(wnum == 1){
             cout << "단검을 던졌습니다!" << endl;
+            hp = hp - deal; // - 데미지 해줘야 함
             w_num --;
         }
         else if(wnum == 2){
             cout << "총을 발사했습니다!" << endl;
+            hp = hp - deal; // - 데미지 해줘야 함
             w_num2 --;
         }
     }
@@ -105,11 +103,9 @@ protected:
 class Weapon : public Character{
 protected:
     int attack_stat, attack_num;
-
+    int deal = hp - attack_stat * attack_num;
 public:
-    int attack(){
-        int deal = hp - attack_stat * attack_num;
-        return deal;
+    virtual void attack(){
     }
 };
 
@@ -157,6 +153,11 @@ public:
             }
         }
         
+    }
+    void attack(){
+        cout << "상대에게 단검을 던졌습니다!" << endl;
+        hp = hp - deal; // - 데미지 해줘야 함
+        w_num --;
     }
 };
 class Gun : public Weapon{

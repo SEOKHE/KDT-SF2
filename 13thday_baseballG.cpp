@@ -18,7 +18,14 @@ using std::vector;
 //겹치는 숫자 값만 있는 경우 변수 ball을 해당 개수만큼 표시한다.
 //입력 받은 숫자가 1~9를 벗어난 숫자면 종료해버린다.
 
+
+//상수 선언법 1
+//#define SIZE 3//컴파일 되기전에 읽겠다. #define 상수명(전부 대문자) 상수 값 /예시는 SIZE 3을 선언함
+
+
 int main(){
+    //const int numer = 3; //상수 선언법 2, 이 방법은 배열의 값으로도 사용 가능
+
     std::srand(time(NULL));
     int cnum, j;
     int referee[3];

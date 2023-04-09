@@ -132,7 +132,7 @@ int main(){
         cnt++;
         cal->Result();
         result2 = result;
-        // next = cal->Next();
+        
         cout << "연산을 게속 하시겠습니까? (Y: 계속, AC: 초기화, EXIT: 종료) : ";;
         cin >> text;
         cout << endl;

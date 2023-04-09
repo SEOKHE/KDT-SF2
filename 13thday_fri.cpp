@@ -31,10 +31,7 @@ int main(){
             if(v1[i] == v1[j]){ 
                 i--;
             }
-            
         }
-        j = 1;
-        
     }
 
     cout << endl << "1~25까지 중복 없는 숫자 6개를 입력하면 당첨 결과를 알려드립니다!" << endl;
@@ -43,7 +40,11 @@ int main(){
         cout << "숫자를 입력해주세요: ";
         cin  >> num;
         cout << endl;
-        v2.push_back(num);
+        if(num > 25 || num <= 0){
+            cout << "1~25 까지 입력해줘요" << endl << endl;
+            i--;
+        }
+        else v2.push_back(num);
     }
     cout << "-----------------------------------------------------------------" << endl;
 
@@ -93,5 +94,5 @@ int main(){
         cout << "뭐요. 프로젝트 코드에 뭘 바래요." << endl;
         cout << "뭐 맡겨놨어요? 집으로나 가요." << endl << endl;
     }
-
+    return 0;
 }
