@@ -140,10 +140,10 @@ int main(){
             result2 = result;
         }
         else if(text == "AC" || text == "ac"){
-            int num1 = 0;
-            int num2 = 0;
-            result = 0;
-            result2 = 1;
+            num1 = 1.0;
+            num2 = 2.0;
+            result = 0.0;
+            result2 = 1.0;
             cout << "값이 초기화 되었습니다" << endl;
         }
         else if(text == "EXIT" || text == "exit"){
