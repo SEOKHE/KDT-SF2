@@ -20,14 +20,12 @@ int main(){
             cout << "숫자를 입력해주세요 : ";
             cin >> pnum;
             cout << endl;
-            if(pnum == 0 || pnum > 3){
+            if(pnum == 0 || pnum > 3 || pnum < 0){
                 cout << "1~3 사이의 숫자를 입력해주세요" << endl;
             }
             else{
-                // gnum = count(pnum);
-                // cout << endl;
                 for(int i = 0; i < pnum; i++){
-                    cout << ++gnum << endl; //gnum ++;과 같은 역할
+                    cout << ++gnum << endl; 
                 }
                 cout << endl;
                 turn = true;
@@ -37,7 +35,7 @@ int main(){
             cout << "컴퓨터가 입력한 숫자입니다!" << endl;
             int rnum = std::rand();  //random num
             cnum = rnum % 3 + 1;
-            
+
             for(int j = 0; j < cnum; j++){
                 cout << ++gnum << endl;
             }
@@ -50,6 +48,7 @@ int main(){
             }
     }
 
+    // 게임의 결론부
     if(gnum >= 31){
         cout << "게임이 종료되었습니다" << endl;
         if(turn == false){
